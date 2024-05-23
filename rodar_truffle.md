@@ -1,1 +1,1 @@
-docker run --rm -it -v "$PWD:/pwd" trufflesecurity/trufflehog:latest github --repo https://github.com/nelsonapf/estudos-sast
+docker run --rm -v "$PWD:/pwd" trufflesecurity/trufflehog:latest github --repo https://github.com/nelsonapf/estudos-sast
