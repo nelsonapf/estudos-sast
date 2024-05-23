@@ -19,12 +19,12 @@ jobs:
 
     - name: Roda TruffleHog
       run: |
-        output = $(docker run --rm -v "$PWD:/pwd" trufflesecurity/trufflehog:latest github --repo https://github.com/nelsonapf/estudos-sast)
-        # echo "::set-output name=trufflehog_output::$(echo "$output" | tr -d '\r')"
+        output=$(docker run --rm -v "$PWD:/pwd" trufflesecurity/trufflehog:latest github --repo https://github.com/nelsonapf/estudos-sast)
+        echo "::set-output name=trufflehog_output::$(echo "$output" | tr -d '\r')"
 
     - name: Criar Issue TruffleHog
       run: |
-        if [[ "$trufflehog_output" == *"Found unverified result 🐷🔑❓"* || "$trufflehog_output" == *"Found verified result 🐷🔑❓"* ]]; then
+        if [[ "$trufflehog_output" == *"Found unverified result"* || "$trufflehog_output" == *"Found verified result"* ]]; then 
           curl -L \
                   -X POST \
                   -H "Accept: application/vnd.github+json" \
