@@ -20,7 +20,7 @@ jobs:
     - name: Roda TruffleHog
       run: |
         output = $(docker run --rm -v "$PWD:/pwd" trufflesecurity/trufflehog:latest github --repo https://github.com/nelsonapf/estudos-sast)
-        echo "::set-output name=trufflehog_output::$(echo "$output" | tr -d '\r')"
+        # echo "::set-output name=trufflehog_output::$(echo "$output" | tr -d '\r')"
 
     - name: Criar Issue TruffleHog
       run: |
