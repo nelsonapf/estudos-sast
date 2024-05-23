@@ -24,7 +24,7 @@ jobs:
 
     - name: Criar Issue TruffleHog
       run: |
-        if [[ "$trufflehog_output" == *"Found unverified result"* || "$trufflehog_output" == *"Found verified result"* ]]; then 
+        if [[ "$trufflehog_output" == *"Found unverified result 🐷🔑❓"* || "$trufflehog_output" == *"Found verified result 🐷🔑❓"* ]]; then 
           curl -L \
                   -X POST \
                   -H "Accept: application/vnd.github+json" \
