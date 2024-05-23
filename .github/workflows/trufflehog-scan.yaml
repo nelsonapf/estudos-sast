@@ -26,8 +26,9 @@ jobs:
       env:
         trufflehog_output: ${{ steps.trufflehog.outputs.trufflehog_output }}
       run: |
-        
-        if [[ "$trufflehog_output" -eq *"Found unverified result 🐷🔑❓"* || "$trufflehog_output" == *"Found verified result 🐷🔑❓"* ]]; then
+        x=1
+        y=1
+        if [[ $x -eq $y || "$trufflehog_output" == *"Found verified result 🐷🔑❓"* ]]; then
 
           curl -L \
                   -X POST \
