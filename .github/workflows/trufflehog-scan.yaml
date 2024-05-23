@@ -26,6 +26,7 @@ jobs:
       env:
         trufflehog_output: ${{ steps.trufflehog.outputs.trufflehog_output }}
       run: |
+        exit 1
         if [[ "$trufflehog_output" == *"Found unverified result 🐷🔑❓"* || "$trufflehog_output" == *"Found verified result 🐷🔑❓"* ]]; then
 
           curl -L \
@@ -37,4 +38,3 @@ jobs:
                   -d '{"title":"TruffleHog Found a secret","body":"I'\''m having a problem with this.","labels":["bug"]}'
           exit 1
         fi
-        
