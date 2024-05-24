@@ -28,7 +28,8 @@ jobs:
       run: |
         x=1
         y=1
-        if [[ $x -eq $y || "$trufflehog_output" == *"Found verified result 🐷🔑❓"* ]]; then
+        echo $trufflehog_output
+        if [[ "$trufflehog_output" == *"Found unverified result 🐷🔑❓"* || "$trufflehog_output" == *"Found verified result 🐷🔑❓"* ]]; then
 
           curl -L \
                   -X POST \
