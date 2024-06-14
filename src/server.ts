@@ -26,7 +26,7 @@ dotenv.config({ path: '.env' })
 const app = express()
 
 const corsOpts = {
-  origin: '*',
+  origin: false, //adicionar a lista de domínios seguros no futuro
 
   methods: [
     'GET',

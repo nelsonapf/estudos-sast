@@ -9,3 +9,4 @@ database/
 mysql
 trufflehog.log
 .bat
+.scannerwork
