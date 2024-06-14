@@ -1,0 +1,31 @@
+name: Sonarqube Scan
+
+on:
+ pull_request:
+   branches:
+     - main
+
+jobs:
+ sonarqube:
+   runs-on: ubuntu-latest
+
+   steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Instala SonarScanner
+      run: |
+        wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.0.0.4432-linux.zip
+        unzip sonar-scanner-cli-6.0.0.4432-linux.zip
+
+    - name: Run SonnarScanner
+      run: |
+        ./sonar-scanner-6.0.0.4432-linux/bin/sonar-scanner -X \
+           -Dsonar.projectKey=VollMed \
+           -Dsonar.sources=. \
+           -Dsonar.host.url=http://localhost:9000 \
+           -Dsonar.login=$SONARQUBE_TOKEN
+
+      env:
+        SONARQUBE_TOKEN: ${{ secrets.SONARQUBE_TOKEN}}
+    
